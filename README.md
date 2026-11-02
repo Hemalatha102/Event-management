@@ -69,4 +69,16 @@ This version is a frontend application with a curated in-code event list. Regist
 
 ## Deployment
 
-Build the application with `npm run build`, then deploy the generated `dist/` directory to a static hosting provider that supports single-page applications, such as GitHub Pages, Netlify, or Vercel. Configure the provider to serve `index.html` for the site route.
+The Vite base path is configured for this repository's GitHub Pages URL.
+
+To publish the generated `dist/` contents to the `gh-pages` branch:
+
+```bash
+npm run deploy
+```
+
+The `predeploy` script builds the site first. The deployment script prepares a temporary `gh-pages` checkout, copies the generated site into it, and uses a normal Git push (no force push). Git and an authenticated `origin` remote are required.
+
+On GitHub, open **Settings → Pages** and set the source to **Deploy from a branch**, select **gh-pages** and **/(root)**, then save. Once Pages finishes publishing, the site is available at:
+
+<https://hemalatha102.github.io/Event-management/>
